@@ -1,0 +1,45 @@
+.profileImage:hover a {
+    opacity: 1; /* added */
+    top: 0; /* added */
+    z-index: 500;
+}
+/* added */
+.profileImage:hover a span {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #fff;
+    text-shadow: 5px 5px 8px #000;
+    transform: translateY(-50%);
+}
+/* added */
+.profileImage a {
+    display: block;
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: inherit;
+}
+
+blockquote {
+    padding: 10px;
+    border-left: 10px solid #f1d000;
+    line-height: 1.4em;
+}
+
+a:link {
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: "open sans", arial, sans-serif;
+    color: #171717;
+    font-weight: bold;
+    margin-bottom:10px;
+    font-weight: bold;
+}
