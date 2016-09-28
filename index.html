@@ -55,6 +55,20 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
+		<!-- TinyMCE -->
+		<script src="tinymce/tinymce.min.js"></script>
+  	<script>
+  	tinymce.init({
+  		selector:'#bio',
+  		height: 500,
+		  plugins: [
+		    'advlist autolink lists link image charmap print preview anchor',
+		    'searchreplace visualblocks code fullscreen',
+		    'insertdatetime media table contextmenu paste code'
+		  ],
+  		toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  	});</script>
+
 	</head>
 	<body>
 	<!-- Begin Gold Bar -->
@@ -121,8 +135,8 @@
 						<a href="https://www.purdue.edu"><img alt="Purdue University" src="https://www.purdue.edu/purdue/images/logo.png"/></a>
 					</div>
 					<div class="department col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						<a href="../index.html">Office of XYZ</a>
-						<span class="tagline"><a href="#">Website tagline</a></span>
+						<a href="#">AgBio</a>
+						<span class="tagline"><a href="#">Update Your Online Profile for Purdue Ag</a></span>
 					</div>
 				</div>
 			</div>
@@ -170,7 +184,7 @@
 		<div class="breadcrumb">
 			<div class="container">
 				<div class="row">
-					<div id="breadcrumbs"><ol class="col-lg-12 col-md-12 col-sm-12"><li><a href="index.html">Content</a></li></ol></div>
+					<div id="breadcrumbs"><ol class="col-lg-12 col-md-12 col-sm-12"><li><a href="index.html">Gandlf The Grey Wz.'s Profile</a></li></ol></div>
 				</div>
 			</div>
 		</div>
@@ -180,17 +194,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="maincontent col-xs-12 right">
-	<!-- 				<form class="form-inline">
-						<div class="form-group">
-					    <label for="exampleInputFile"><strong>View profile for</strong> </label>
-					    <select class="form-control">
-					    	<option>Agricultural Communication</option>
-					    	<option>Forestry and Natural Resources</option>
-					    	<option>Shire</option>
-					    	<option>Gondor</option>
-					    </select>
-					  </div>
-					</form> -->
+					<div class="alert alert-info">
+						<form class="form-inline">
+							<div class="form-group">
+								<strong><i class="fa fa-info-circle"></i>
+						    <label for="selectedDept">You are viewing your profile for</strong> </label>
+						    <select id="selectedDept" class="form-control">
+						    	<option>Agricultural Communication</option>
+						    	<option>Forestry and Natural Resources</option>
+						    	<option>Shire</option>
+						    	<option>Gondor</option>
+						    </select>
+						  </div>
+						</form>
+					</div>
+					<br style="clear: both;">
 						<div class="col-sm-3">
 							<div class="profileImage">
 								<img src="gandalf.jpg" class="img-responsive img-thumbnail img-circle">
@@ -200,29 +218,39 @@
 						<div class="col-sm-9">
 							<h1><a href="#" id="firstName" data-type="text" data-title="Enter firstname">Gandalf</a> <a href="#" id="middleName" data-type="text" data-title="Enter middlename">The</a> <a href="#" id="lastName" data-type="text" data-title="Enter lastname">Grey</a> <a href="#" id="suffixName" data-type="select" data-title="Enter suffix"></a> </h1>
 							<a href="#" id="userDept" data-type="select" data-title="Enter department"></a><br>
-							<a href="#" id="userJob1" data-type="text" data-title="Enter Job Title">The Grey Pilgrim</a>  <a href="#" id="jobAddTitle" class="btn btn-default btn-xs"><i class="fa fa-plus-circle"></i> Add Title</a><br>
-							<div id="extraJobs" style="display: none;">
-								<a href="#" id="userJob2" data-type="text" data-title="Enter Second Job Title">Mithrandir</a> <a id="getTheFOuttaHere" href="#" class=""><i class="fa fa-times"></i></a><br>
+							<div class="jobTitle">
+								<a style="font-weight: bold !important;" href="#" id="userJob1" data-type="text" data-title="Enter Job Title">The Grey Pilgrim</a> <a href="#" id="jobAddTitle" class="btn btn-default btn-xs"><i class="fa fa-plus-circle"></i> Add Title</a><br>
+								<div id="extraJobs" style="display: none;">
+								<a style="font-weight: bold !important;" href="#" id="userJob2" data-type="text" data-title="Enter Second Job Title">Mithrandir</a> <a id="getTheFOuttaHere" href="#" class=""><i class="fa fa-times"></i></a><br>
+								</div>
 							</div>
 
-							<h4>Contact</h4>
-							<i class="fa fa-phone"></i> <a href="#" id="userPhone" data-type="text" data-title="Enter Office Phone">765-494-6681</a>  <a id="eyeOpen" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose" href="#"><i class="fa fa-eye-slash"></i></a><br>
-							<i class="fa fa-fax"></i> <a href="#" id="userFax" data-type="text" data-title="Enter Office Fax">765-494-6682</a>  <a id="eyeOpen2" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose2" href="#"><i class="fa fa-eye-slash"></i></a><br>
-							<i class="fa fa-envelope"></i> <a href="#" id="userEmail" data-type="text" data-title="Enter Email">gandalf@purdue.edu</a>  <a id="eyeOpen3" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose3" href="#"><i class="fa fa-eye-slash"></i></a><br>
-							<i class="fa fa-building"></i> <a href="#" id="userOffice" data-type="text" data-title="Enter Office Room Number">07</a>  <a id="eyeOpen4" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose4" href="#"><i class="fa fa-eye-slash"></i></a><br>
+							<div class="col-sm-6">
+								<i class="fa fa-phone"></i> <a href="#" id="userPhone" data-type="text" data-title="Enter Office Phone">765-494-6681</a>  <a id="eyeOpen" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose" href="#"><i class="fa fa-eye-slash"></i></a><br>
+								<i class="fa fa-fax"></i> <a href="#" id="userFax" data-type="text" data-title="Enter Office Fax">765-494-6682</a>  <a id="eyeOpen2" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose2" href="#"><i class="fa fa-eye-slash"></i></a><br>
+								<i class="fa fa-envelope"></i> <a href="#" id="userEmail" data-type="text" data-title="Enter Email">gandalf@purdue.edu</a>  <a id="eyeOpen3" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose3" href="#"><i class="fa fa-eye-slash"></i></a><br>
+								<i class="fa fa-globe"></i> <a href="#" id="userWeb" data-type="text" data-title="Enter Web">http://ag.purdue.edu</a>  <a id="eyeOpen5" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose5" href="#"><i class="fa fa-eye-slash"></i></a><br>
+							</div>
+							<div class="col-sm-6">
+								<i class="fa fa-building"></i> <a href="#" id="userOffice" data-type="text" data-title="Enter Office Room Number">AGAD07</a>  <a id="eyeOpen4" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose4" href="#"><i class="fa fa-eye-slash"></i></a><br>
+								<i class="fa fa-map-marker"></i>
+								<a href="#" id="userStreet" data-type="text" data-title="Enter Street">615 West State St.</a>  <a id="eyeOpenAddress" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeCloseAddress" href="#"><i class="fa fa-eye-slash"></i></a><br>
+								<div class="address-right">
+									<a href="#" id="userCity" data-type="text" data-title="Enter Street">West Lafayette</a>
+									<a href="#" id="userState" data-type="text" data-title="Enter Street">IN</a>
+									<a href="#" id="userZip" data-type="text" data-title="Enter Street">47906</a><br>
+								</div>
+								<i class="fa fa-paperclip"></i> <a href="#" id="userCV" data-type="text" data-title="Enter CV">http://my.cv/url</a>  <a id="eyeOpen6" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose6" href="#"><i class="fa fa-eye-slash"></i></a><br>
+							</div>
+						</div>
+						<!-- make tinymce appear below top stuff -->
+						<br style="clear:both;">
+							<div class="row">
+								<div class="col-12-xs">
+								<textarea id="bio"></textarea>
 
-
-
-
-
-
-
-
-
-
-
-
-
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -365,14 +393,33 @@
 			    	send: "never", // only for local example, use JSON
 			    });
 
+			    $('#userWeb').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
+
+			    $('#userCV').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
+
 			    $('#userOffice').editable({
 			    	send: "never", // only for local example, use JSON
 			    });
 
+			    $('#userStreet').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
 
+			    $('#userCity').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
 
+			    $('#userState').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
 
-			    userJob1
+			    $('#userZip').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
 
 			    $('#suffixName').editable({
 			        type: 'select',
@@ -389,20 +436,7 @@
 			        */
 			    });
 
-			    $('#selectedDept').editable({
-			        type: 'select',
-			        value: 2,
-			        source: [
-			            {value: 1, text: 'Forestry and Natural Resources'},
-			            {value: 2, text: 'Agricultural Communication'},
-			            {value: 3, text: 'Gondor'}
-			        ]
-			        /*
-			        //uncomment these lines to send data on server
-			        ,pk: 1
-			        ,url: '/post'
-			        */
-			    });
+
 
 			    $('#userDept').editable({
 			        type: 'select',
@@ -476,6 +510,48 @@
 			    	$('#eyeClose4').hide();
 			    	$('#eyeOpen4').show();
 			    	$("#userOffice").css("color", "#000");
+			    });
+
+			    $('#eyeOpen5').click(function() {
+			    	$('#eyeClose5').show();
+			    	$('#eyeOpen5').hide();
+			    	$("#userWeb").css("color", "#bababa");
+			    });
+
+			    $('#eyeClose5').click(function() {
+			    	$('#eyeClose5').hide();
+			    	$('#eyeOpen5').show();
+			    	$("#userWeb").css("color", "#000");
+			    });
+
+			    $('#eyeOpen6').click(function() {
+			    	$('#eyeClose6').show();
+			    	$('#eyeOpen6').hide();
+			    	$("#userCV").css("color", "#bababa");
+			    });
+
+			    $('#eyeClose6').click(function() {
+			    	$('#eyeClose65').hide();
+			    	$('#eyeOpen6').show();
+			    	$("#userCV").css("color", "#000");
+			    });
+
+			    $('#eyeOpenAddress').click(function() {
+			    	$('#eyeCloseAddress').show();
+			    	$('#eyeOpenAddress').hide();
+			    	$("#userStreet").css("color", "#bababa");
+			    	$("#userCity").css("color", "#bababa");
+			    	$("#userState").css("color", "#bababa");
+			    	$("#userZip").css("color", "#bababa");
+			    });
+
+			    $('#eyeCloseAddress').click(function() {
+			    	$('#eyeCloseAddress').hide();
+			    	$('#eyeOpenAddress').show();
+			    	$("#userStreet").css("color", "#000");
+			    	$("#userCity").css("color", "#000");
+			    	$("#userState").css("color", "#000");
+			    	$("#userZip").css("color", "#000");
 			    });
 
 

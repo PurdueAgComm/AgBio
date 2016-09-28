@@ -17,7 +17,6 @@
 .profileImage a {
     display: block;
     position: absolute;
-    top: -100%;
     opacity: 0;
     left: 0;
     bottom: 0;
@@ -42,4 +41,32 @@ h1,h2,h3,h4,h5,h6{
     font-weight: bold;
     margin-bottom:10px;
     font-weight: bold;
+}
+
+.address-right {
+    margin-left: 13px;
+}
+
+.jobTitle {
+    margin-left: 15px;
+}
+
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #171717;
+
+}
+
+@media (min-width: 768px) {
+ body  {
+    font-size: 1em !important;
+    line-height: 1.5em !important;
+  }
+}
+@media (max-width: 767px) {
+  body  {
+    font-size: 1.125em !important;
+    line-height: 1.5em !important;
+  }
 }
