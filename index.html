@@ -17,9 +17,8 @@
 		<link href="https://www.purdue.edu/purdue/css/2015/content.css" rel="stylesheet" text="text/css"/>
 		<link href="agbio.css" rel="stylesheet" text="text/css"/>
 		<link href="editable/css/bootstrap-editable.css" rel="stylesheet"/>
-	    <!--[if IE 9]>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<![endif]-->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<!-- Javascript -->
 		<script src="https://www.purdue.edu/purdue/js/jquery-1.10.2.min.js" type="text/javascript"></script>
@@ -219,10 +218,7 @@
 							<h1><a href="#" id="firstName" data-type="text" data-title="Enter firstname">Gandalf</a> <a href="#" id="middleName" data-type="text" data-title="Enter middlename">The</a> <a href="#" id="lastName" data-type="text" data-title="Enter lastname">Grey</a> <a href="#" id="suffixName" data-type="select" data-title="Enter suffix"></a> </h1>
 							<h4>Agricultural Communication</h4>
 							<div class="jobTitle">
-								<a style="font-weight: bold !important;" href="#" id="userJob1" data-type="text" data-title="Enter Job Title">The Grey Pilgrim</a> <a href="#" id="jobAddTitle" class="btn btn-default btn-xs"><i class="fa fa-plus-circle"></i> Add Title</a><br>
-								<div id="extraJobs" style="display: none;">
-								<a style="font-weight: bold !important;" href="#" id="userJob2" data-type="text" data-title="Enter Second Job Title">Mithrandir</a> <a id="getTheFOuttaHere" href="#" class=""><i class="fa fa-times"></i></a><br>
-								</div>
+								<a style="font-weight: bold !important;" href="#" id="userJob1" data-type="text" data-title="Enter Job Title">The Grey Pilgrim</a> <a id="eyeOpen0" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose0" href="#"><i class="fa fa-eye-slash"></i></a><br>
 							</div>
 
 							<div class="col-sm-6">
@@ -241,6 +237,11 @@
 									<a href="#" id="userZip" data-type="text" data-title="Enter Street">47906</a><br>
 								</div>
 								<i class="fa fa-paperclip"></i> <a href="#" id="userCV" data-type="text" data-title="Enter CV">http://my.cv/url</a>  <a id="eyeOpen6" href="#"><i class="fa fa-eye"></i></a><a style="display:none;" id="eyeClose6" href="#"><i class="fa fa-eye-slash"></i></a><br>
+							</div>
+							<div class="col-sm-12">
+								<h4>Social Media <a href="#" class="btn btn-xs btn-default"><i class="fa fa-plus"></i> Add</a></h4>
+								<i class="fa fa-address-card-o"></i> <a href="#" id="socialMediaChoice" data-type="select" data-pk="1" data-url="/post" data-title="Select SM"></a> <i class="fa fa-link"></i> <a href="#" id="socialMediaURL" data-type="text" data-title="Enter Web">http://facebook.com/purduekenny</a> <a href="#" class="btn btn-xs btn-default"><i class="fa fa-times"></i> Remove</a><br>
+								<i class="fa fa-address-card-o"></i> <a href="#" id="socialMediaChoice2" data-type="select" data-pk="2" data-url="/post" data-title="Select SM"></a> <i class="fa fa-link"></i> <a href="#" id="socialMediaURL2" data-type="text" data-title="Enter Web">http://twitter.com/purduekenny</a> <a href="#" class="btn btn-xs btn-default"><i class="fa fa-times"></i> Remove</a> <br>
 							</div>
 						</div>
 						<!-- make tinymce appear below top stuff -->
@@ -397,6 +398,37 @@
 			    	send: "never", // only for local example, use JSON
 			    });
 
+			    $('#socialMediaURL').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
+
+					$(function(){
+					    $('#socialMediaChoice').editable({
+					        value: 1,
+					        source: [
+					              {value: 1, text: 'Facebook'},
+					              {value: 2, text: 'Twitter'},
+					              {value: 3, text: 'LinkedIn'}
+					           ]
+					    });
+					});
+
+					$('#socialMediaURL2').editable({
+			    	send: "never", // only for local example, use JSON
+			    });
+
+					$(function(){
+					    $('#socialMediaChoice2').editable({
+					        value: 2,
+					        source: [
+					              {value: 1, text: 'Facebook'},
+					              {value: 2, text: 'Twitter'},
+					              {value: 3, text: 'LinkedIn'}
+					           ]
+					    });
+					});
+
+
 			    $('#userCV').editable({
 			    	send: "never", // only for local example, use JSON
 			    });
@@ -454,14 +486,29 @@
 			    });
 
 			    // this is example of functionality, not real function request.
-			    // user should be able to add infinite job titles
-			    $('#jobAddTitle').click(function() {
-			    	$('#extraJobs').show();
+			    // user should be able to add 1 of each account
+			    $('#addSM').click(function() {
+			    	$('#socialMedia2').show();
 			    });
 
 			    // hiding should actually delete the record not just hide the field, this is an example
-			    $('#getTheFOuttaHere').click(function() {
-			    	$('#extraJobs').hide();
+			    $('#removeSM').click(function() {
+			    	$('#socialMedia2').hide();
+			    });
+
+
+
+
+			    $('#eyeOpen0').click(function() {
+			    	$('#eyeClose0').show();
+			    	$('#eyeOpen0').hide();
+			    	$("#userJob1").css("color", "#bababa");
+			    });
+
+			    $('#eyeClose0').click(function() {
+			    	$('#eyeClose0').hide();
+			    	$('#eyeOpen0').show();
+			    	$("#userJob1").css("color", "#000");
 			    });
 
 			    $('#eyeOpen').click(function() {
